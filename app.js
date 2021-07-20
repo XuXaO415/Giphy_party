@@ -1,49 +1,43 @@
-const $gifArea = $('#gif_area');
-const $searchInput = $('#submit_search');
+const $gifArea = $("#gif-area");
+const $searchInput = $("#search");
 
+/* use ajax result to add a gif */
 
-
-function addGiphy(results) {
-    //const response = await axios.get('http://api.giphy.com/v1/gifs/search');
-    //const results = results.data.length;
-
-    let random = Math.floor(Math.random() * results);
-    if (random) {
-        let $divCol;
-        $divCol = $('<div>');
-        let $newGif;
-        $newGif = $('<img>');
-        src: results.data[random].image.orignal.url,
-
-            $divCol.append($newGif);
-        $gifArea.append($divCol);
-    }
-
-
-    $('form').on('submit', async function (e) {
-        e.preventDefault();
-
-        // let seachTerm = $searchInput.val();
-        // $searchInput.val('');
-        // const response = await axios.get('https://api.giphy.com/v1/gifs/search'
-        const gif_search = await axios.get('http://api.giphy.com/v1/gifs/search', {
-            params: {
-                q: 'searchTerm',
-                api_key: 'VaVgtOjzpC7036El6H6nzobBSVcG2u34'
-            },
+function addGif(res) {
+    let numResults = res.data.length;
+    if (numResults) {
+        let randomIdx = Math.floor(Math.random() * numResults);
+        let $newCol = $("<div>", { class: "col-md-4 col-12 mb-4" });
+        let $newGif = $("<img>", {
+            src: res.data[randomIdx].images.original.url,
+            class: "w-100"
         });
+        $newCol.append($newGif);
+        $gifArea.append($newCol);
+    }
+}
 
-        addGiphy(gif_search.data);
-    })
+/* handle form submission: clear search box & make ajax call */
 
-    $('remove').on('click', function () {
-        $gifArea.empty();
+$("form").on("submit", async function(evt) {
+    evt.preventDefault();
+
+    let searchTerm = $searchInput.val();
+    $searchInput.val("");
+
+    const response = await axios.get("http://api.giphy.com/v1/gifs/search", {
+        params: {
+            q: searchTerm,
+            api_key: "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym"
+                // api_key: "VaVgtOjzpC7036El6H6nzobBSVcG2u34async"
+
+        }
     });
+    addGif(response.data);
+});
 
-//await and returns promise(s); get endpoint
-//https://developers.giphy.com/docs/api/endpoint
+/* remove gif */
 
-//console.log (search.cheeseburgers);
-
-//console.log ('This line is after axios.get');
-//console.log ("Let's get this party started!");
+$("#remove").on("click", function() {
+    $gifArea.empty();
+});

@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Giphy Party!</title>
-    </head>
-    <body>
-        <h1>
-            <center>
-                GIPHY PARTY
-            </center>
-        </h1>
-        <form>
-            <center>
-                <input
-                    type="text"
-                    id="-submit_search"
-                    name="submit_search"
-                    placeholder="What are you looking for?"
-                >
-                <button id="add-btn" class="add_btn" value="seach giphy">Add Giphy</button>
-                <button id="remove-btn" class="remove_btn">Remove Giphy</button>
-            </center>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Let's get this party started!</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4 mb-4">GIPHY PARTY</h1>
+        <form class="form-inline d-flex justify-content-center mb-4">
+            <input type="text" id="search" name="search" placeholder="Enter a search term" class="form-control mr-2">
+            <input type="submit" class="btn btn-secondary" value="Search Giphy!">
+            <button id="remove" class="btn btn-danger ml-2">Remove Images</button>
         </form>
-        <div id="gif_area"></div>
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
+        <div id="gif-area" class="row"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Let's get this party started!</title>
+</head>
+
+<body>
+
+    <body class="bg-secondary">
+        <div class="container-fluid">
+            <center>
+                <h1>GIPHY PARTY</h1>
+            </center>
+            <div class="col-8 form-group">
+                <input class="form-control" placeholder="What sort of Giphy are you searching for?">
+                <input class="btn btn-primary" type="submit" id="submit">
+                <button class="btn btn-primary" id="delete-images">Delete Image</button>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6" id="giphy"></div>
+            </div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
         <script src="https://unpkg.com/axios/dist/axios.js"></script>
         <script src="app.js"></script>
     </body>
-</html>
+
+</html> -->
